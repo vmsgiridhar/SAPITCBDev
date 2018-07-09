@@ -11,16 +11,18 @@ def index():
   data = json.loads(request.get_data())
 
   # FETCH THE CRYPTO NAME
-  crypto_name = data['conversation']['memory']['crypto']['raw']
+  #crypto_name = data['conversation']['memory']['crypto']['raw']
+  crypto_name = data['conversation']['memory']['empid']['raw']
 
   # FETCH BTC/USD/EUR PRICES
-  r = requests.get("https://min-api.cryptocompare.com/data/price?fsym="+crypto_name+"&tsyms=BTC,USD,EUR")
+  #r = requests.get("https://min-api.cryptocompare.com/data/price?fsym="+crypto_name+"&tsyms=BTC,USD,EUR")
+  r = requests.get("https://giridev1c5232886trial.hanatrial.ondemand.com/ChatBot_DEV/Read.xsjs?EMPID="+crypto_name)
 
   return jsonify(
     status=200,
     replies=[{
       'type': 'text',
-      'content': 'The price of %s is %f BTC and %f USD' % (crypto_name, r.json()['BTC'], r.json()['USD'])
+	  'content': 'The Salary of %s is %f ' % (crypto_name, r.json()['EMPID'], r.json()['SAL'])
     }]
   )
 
@@ -33,3 +35,4 @@ def errors():
 app.run(port=port, host="0.0.0.0")
 #https://giridev1c5232886trial.hanatrial.ondemand.com/ChatBot_DEV/Read.xsjs?EMPID=1002193
 #crypto_name = data['conversation']['memory']['empid']['raw']
+#'content': 'The price of %s is %f BTC and %f USD' % (crypto_name, r.json()['BTC'], r.json()['USD'])
