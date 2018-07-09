@@ -1,0 +1,15 @@
+{
+  "name": "SAP IT Chat Bot DEV",
+  "description": "The server side of SAP IT Chat Bot DEV",
+  "image": "heroku/python",
+  "repository": "https://github.com/vmsgiridhar/SAPITCBDev",
+  "keywords": ["python", "flask" ],
+  "addons": [ "heroku-postgresql" ],
+  "environments": {
+    "test": {
+      "scripts": {
+        "test": "server.py test"
+      }
+    }
+  }
+}
