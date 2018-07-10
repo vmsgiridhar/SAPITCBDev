@@ -25,7 +25,7 @@ def index():
     status=200,
     replies=[{
       'type': 'text',
-	  'content': 'The Salary of %s is %f ' % (crypto_name, r.json()['SAL'])
+	  'content': 'The Salary of %s is %f ' % (crypto_name, r.json()["SAL"])
     }]
   )
 
@@ -40,3 +40,4 @@ app.run(port=port, host="0.0.0.0")
 #crypto_name = data['conversation']['memory']['empid']['raw']
 #'content': 'The price of %s is %f BTC and %f USD' % (crypto_name, r.json()['BTC'], r.json()['USD'])
 #myjson.com
+#'The Salary of %s is %f ' % (crypto_name, r.json()['SAL'])
