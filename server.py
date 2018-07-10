@@ -42,3 +42,8 @@ app.run(port=port, host="0.0.0.0")
 #myjson.com
 #'The Salary of %s is %f ' % (crypto_name, r.json()['SAL'])
 # Make your xsjs public: https://archive.sap.com/discussions/thread/3656891
+'''
+UPDATE "_SYS_XS"."SQL_CONNECTIONS" SET username = 'SYSTEM' WHERE name = 'ChatBot_DEV::Anonymous';
+SELECT * FROM "_SYS_XS"."SQL_CONNECTIONS"
+UPDATE "CHATBOTDEV"."EMPLOYEE_DATA" SET SAL = '50000' WHERE EMPID = '1002191';
+'''
