@@ -14,7 +14,7 @@ def index():
   #crypto_name = data['conversation']['memory']['crypto']['raw']
   #crypto_name = data['conversation']['memory']['empid']['raw']
   #crypto_name = data['entities']['number']['raw']
-  crypto_name = 1002191
+  crypto_name = "1002191"
 
   # FETCH BTC/USD/EUR PRICES
   #r = requests.get("https://min-api.cryptocompare.com/data/price?fsym="+crypto_name+"&tsyms=BTC,USD,EUR")
