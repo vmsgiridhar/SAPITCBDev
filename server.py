@@ -18,8 +18,8 @@ def index():
 
   # FETCH BTC/USD/EUR PRICES
   #r = requests.get("https://min-api.cryptocompare.com/data/price?fsym="+crypto_name+"&tsyms=BTC,USD,EUR")
-  #r = requests.get("https://giridev1c5232886trial.hanatrial.ondemand.com/ChatBot_DEV/Read.xsjs?EMPID=1002191")
-  r = requests.get("https://api.myjson.com/bins/13jh5m")
+  r = requests.get("https://giridev1c5232886trial.hanatrial.ondemand.com/ChatBot_DEV/Read.xsjs?EMPID=1002191")
+  #r = requests.get("https://api.myjson.com/bins/13jh5m")
 
   return jsonify(
     status=200,
@@ -41,3 +41,4 @@ app.run(port=port, host="0.0.0.0")
 #'content': 'The price of %s is %f BTC and %f USD' % (crypto_name, r.json()['BTC'], r.json()['USD'])
 #myjson.com
 #'The Salary of %s is %f ' % (crypto_name, r.json()['SAL'])
+# Make your xsjs public: https://archive.sap.com/discussions/thread/3656891
