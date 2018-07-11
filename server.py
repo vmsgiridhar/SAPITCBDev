@@ -25,7 +25,7 @@ def index():
     status=200,
     replies=[{
       'type': 'text',
-	  'content': 'The Salary of %s is %f' % (crypto_name, r.json()[0]['SAL'])
+	  'content': 'The Salary of %s is %f and %s' % (crypto_name, r.json()[0]['SAL'], crypto_name_test)
     }]
   )
 
