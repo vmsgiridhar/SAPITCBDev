@@ -13,7 +13,7 @@ def index():
   # FETCH THE CRYPTO NAME
   #crypto_name = data['conversation']['memory']['crypto']['raw']
   #crypto_name = data['conversation']['memory']['empid']['raw']
-  crypto_name_test = data['nlp']['entities']['number']
+  crypto_name_test = data['nlp']['entities']['number'][0]['scalar']
   crypto_name = "1002191"
 
   # FETCH BTC/USD/EUR PRICES
