@@ -46,4 +46,18 @@ app.run(port=port, host="0.0.0.0")
 UPDATE "_SYS_XS"."SQL_CONNECTIONS" SET username = 'SYSTEM' WHERE name = 'ChatBot_DEV::Anonymous';
 SELECT * FROM "_SYS_XS"."SQL_CONNECTIONS"
 UPDATE "CHATBOTDEV"."EMPLOYEE_DATA" SET SAL = '50000' WHERE EMPID = '1002191';
+
+----
+Python and oData accessing using 
+from pyslet.odata2.client import Client
+class index:
+    def GET(self):
+    c=Client("http://services.odata.org/V2/Northwind/Northwind.svc/")
+    products=c.feeds['Products'].OpenCollection()
+    productNames = []
+    for k,p in products.iteritems():
+    productNames.append(p['ProductName'].value)
+        web.header('Content-Type', 'text/html')
+        return render_template('index.html', products = productNames)
+
 '''
