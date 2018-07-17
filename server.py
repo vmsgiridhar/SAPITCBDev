@@ -14,11 +14,13 @@ def index():
   #crypto_name = data['conversation']['memory']['crypto']['raw']
   #crypto_name = data['conversation']['memory']['empid']['raw']
   crypto_name_test = data['nlp']['entities']['number'][0]['raw']
+  postdata = data
   #crypto_name = "1002191"
 
   # FETCH BTC/USD/EUR PRICES
   #r = requests.get("https://min-api.cryptocompare.com/data/price?fsym="+crypto_name+"&tsyms=BTC,USD,EUR")
   r = requests.get("https://giridev1c5232886trial.hanatrial.ondemand.com/ChatBot_DEV/Read.xsjs?EMPID="+crypto_name_test)
+  r1 = requests.post("https://giridev1c5232886trial.hanatrial.ondemand.com/ChatBot_DEV/Read.xsjs",postdata)
   #r = requests.get("https://api.myjson.com/bins/13jh5m")
 
   return jsonify(
