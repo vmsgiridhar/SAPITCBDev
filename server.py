@@ -23,7 +23,7 @@ def index():
   r = requests.get("https://giridev1c5232886trial.hanatrial.ondemand.com/ChatBot_DEV/Read.xsjs?EMPID="+crypto_name_test)
   print(r.url)
   r1 = requests.get("https://giridev1c5232886trial.hanatrial.ondemand.com/ChatBot_DEV/Read.xsjs",params = postdata)
-  print(r1.text)
+  print(r1.url)
   #r = requests.get("https://api.myjson.com/bins/13jh5m")
 
   return jsonify(
