@@ -15,6 +15,7 @@ def index():
   #crypto_name = data['conversation']['memory']['empid']['raw']
   crypto_name_test = data['nlp']['entities']['number'][0]['raw']
   postdata = data
+  print(postdata)
   #crypto_name = "1002191"
 
   # FETCH BTC/USD/EUR PRICES
