@@ -26,7 +26,7 @@ def index():
   print(r1.url)
   #r = requests.get("https://api.myjson.com/bins/13jh5m")
 
-  if len(r1.json()) != 0:
+  if len(r1.json()) > 0:
       return jsonify(
         status=200,
         replies=[{
@@ -34,7 +34,7 @@ def index():
           'content': 'The Salary of %s is %d.' % (crypto_name_test, r1.json()[0]['SAL'])
         }]
       )
-  else:
+  if len(r1.json()) == 0:
       return jsonify(
         status=200,
         replies=[{
