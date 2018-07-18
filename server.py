@@ -22,15 +22,15 @@ def index():
   #r = requests.get("https://min-api.cryptocompare.com/data/price?fsym="+crypto_name+"&tsyms=BTC,USD,EUR")
   r = requests.get("https://giridev1c5232886trial.hanatrial.ondemand.com/ChatBot_DEV/Read.xsjs?EMPID="+crypto_name_test)
   print(r.url)
-  r1 = requests.get("https://giridev1c5232886trial.hanatrial.ondemand.com/ChatBot_DEV/ReadGeneric.xsjs",params = postdata)
-  print(r1.url)
+  rp = requests.get("https://giridev1c5232886trial.hanatrial.ondemand.com/ChatBot_DEV/ReadGeneric.xsjs",params = postdata)
+  print(rp.url)
   #r = requests.get("https://api.myjson.com/bins/13jh5m")
 
   return jsonify(
         status=200,
         replies=[{
           'type': 'text',
-          'content': 'The Salary of %s is %d.' % (crypto_name_test, r1.json()[0]['SAL'])
+          'content': 'The Salary of %s is %d.' % (crypto_name_test, rp.json()[0]['SAL'])
         }]
       )
 
