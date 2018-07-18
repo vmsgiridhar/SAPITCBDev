@@ -26,14 +26,14 @@ def index():
   print(rp.url)
   #r = requests.get("https://api.myjson.com/bins/13jh5m")
   if len(rp.json()) != 0:
-    derivedsalary = str(rp.json()[0]['SAL'])
+    derivedsalary = "The Salary of "+crypto_name_test+" is: "+str(rp.json()[0]['SAL'])
   else:
-    derivedsalary = "I don't see this employee in my records."
+    derivedsalary = "I don't see the employee "+crypto_name_test+" in my records."
   return jsonify(
         status=200,
         replies=[{
           'type': 'text',
-          'content': 'The Salary of %s is %s.' % (crypto_name_test, derivedsalary)
+          'content': derivedsalary
         }]
       )
 
