@@ -25,12 +25,15 @@ def index():
   rp = requests.get("https://giridev1c5232886trial.hanatrial.ondemand.com/ChatBot_DEV/ReadGeneric.xsjs",params = postdata)
   print(rp.url)
   #r = requests.get("https://api.myjson.com/bins/13jh5m")
-
+  if len(rp.json() != 0):
+    derivedsalary = str(rp.json()[0]['SAL'])
+  else:
+    derivedsalary = "I don't see this employee in my records."
   return jsonify(
         status=200,
         replies=[{
           'type': 'text',
-          'content': 'The Salary of %s is %d.' % (crypto_name_test, rp.json()[0]['SAL'])
+          'content': 'The Salary of %s is %s.' % (crypto_name_test, derivedsalary)
         }]
       )
 
