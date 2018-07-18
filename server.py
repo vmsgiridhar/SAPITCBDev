@@ -56,7 +56,7 @@ SELECT * FROM "_SYS_XS"."SQL_CONNECTIONS"
 UPDATE "CHATBOTDEV"."EMPLOYEE_DATA" SET SAL = '50000' WHERE EMPID = '1002191';
 
 ----
-Python and oData accessing usingg
+Python and oData accessing using
 from pyslet.odata2.client import Client
 class index:
     def GET(self):
