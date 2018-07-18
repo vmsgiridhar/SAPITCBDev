@@ -14,7 +14,7 @@ def index():
   #crypto_name = data['conversation']['memory']['crypto']['raw']
   #crypto_name = data['conversation']['memory']['empid']['raw']
   crypto_name_test = data['nlp']['entities']['number'][0]['raw']
-  postdata = data
+  postdata = data['nlp']['entities']['number'][0]
   print(postdata)
   #crypto_name = "1002191"
 
