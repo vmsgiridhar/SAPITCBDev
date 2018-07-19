@@ -25,7 +25,7 @@ def index():
   rp = requests.get("https://giridev1c5232886trial.hanatrial.ondemand.com/ChatBot_DEV/ReadGeneric.xsjs",params = postdata)
   print(rp.url)
   #from TestData import datapartition_number
-  print(datapartition_number)
+  #print(datapartition_number)
   #r = requests.get("https://api.myjson.com/bins/13jh5m")
   if len(rp.json()) != 0:
     derivedsalary = "The Salary of "+crypto_name_test+" is: "+str(rp.json()[0]['SAL'])
