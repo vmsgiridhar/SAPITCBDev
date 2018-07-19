@@ -1,4 +1,3 @@
-from TestData import datapartition_number
 from flask import Flask, request, jsonify
 import json
 import requests
@@ -25,6 +24,7 @@ def index():
   print(r.url)
   rp = requests.get("https://giridev1c5232886trial.hanatrial.ondemand.com/ChatBot_DEV/ReadGeneric.xsjs",params = postdata)
   print(rp.url)
+  from TestData import datapartition_number
   print(datapartition_number)
   #r = requests.get("https://api.myjson.com/bins/13jh5m")
   if len(rp.json()) != 0:
