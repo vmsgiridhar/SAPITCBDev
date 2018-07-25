@@ -16,8 +16,8 @@ def index():
   crypto_name_test = data['nlp']['entities']['number'][0]['raw'] #getting the numeric data
   intentgrab = data['nlp']['intents'][0]['slug']
   postdata = data['nlp']['entities']['number'][0]
-  print('Python Log: The number entered is:'+postdata)
-  print('Python Log: The intent grabbed is:'+intentgrab)
+  print('Python Log: The number entered is:'+str(postdata))
+  print('Python Log: The intent grabbed is:'+str(intentgrab))
   #crypto_name = "1002191"
 
   # FETCH BTC/USD/EUR PRICES
