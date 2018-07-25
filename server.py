@@ -14,31 +14,41 @@ def index():
   #crypto_name = data['conversation']['memory']['crypto']['raw']
   #crypto_name = data['conversation']['memory']['empid']['raw']
   crypto_name_test = data['nlp']['entities']['number'][0]['raw'] #getting the numeric data
-  intentgrab = data['nlp']['intents'][0]['slug']
+  skillgrab = data['conversation']['skill']
   postdata = data['nlp']['entities']['number'][0]
   print('Python Log: The number entered is:'+str(postdata))
-  print('Python Log: The intent grabbed is:'+str(intentgrab))
+  print('Python Log: The intent grabbed is:'+str(skillgrab))
   #crypto_name = "1002191"
 
   # FETCH BTC/USD/EUR PRICES
   #r = requests.get("https://min-api.cryptocompare.com/data/price?fsym="+crypto_name+"&tsyms=BTC,USD,EUR")
   #r = requests.get("https://giridev1c5232886trial.hanatrial.ondemand.com/ChatBot_DEV/Read.xsjs?EMPID="+crypto_name_test)
-  r = requests.get("https://sitp2000481094trial.hanatrial.ondemand.com/sapit_test/read.xsjs?EMPID="+crypto_name_test)
-  print(r.url)
-  rp = requests.get("https://giridev1c5232886trial.hanatrial.ondemand.com/ChatBot_DEV/ReadGeneric.xsjs",params = postdata)
-  print(rp.url)
+  if skillgrab == 'testsalary':
+    r = requests.get("https://sitp2000481094trial.hanatrial.ondemand.com/sapit_test/read.xsjs?EMPID="+crypto_name_test)
+    print(r.url)
+    rp = requests.get("https://giridev1c5232886trial.hanatrial.ondemand.com/ChatBot_DEV/ReadGeneric.xsjs",params = postdata)
+    print(rp.url)
+  if skillgrab == 'testproduct':
+    r = requests.get("https://sitp2000481094trial.hanatrial.ondemand.com/sapit_test/read_products.xsjs?PRDID="+crypto_name_test)
+    print(r.url)
+    rp = requests.get("https://giridev1c5232886trial.hanatrial.ondemand.com/ChatBot_DEV/ReadGeneric.xsjs",params = postdata)
+    print(rp.url)
   #from TestData import datapartition_number
   #print(datapartition_number)
   #r = requests.get("https://api.myjson.com/bins/13jh5m")
-  if len(r.json()) != 0:
-    derivedsalary = "The Salary of "+crypto_name_test+" is: "+str(r.json()[0]['SAL'])
+  if len(r.json()) != 0 and skillgrab == 'testsalary':
+    returnmessage = "The Salary of "+crypto_name_test+" who is "+str(r.json()[0]['EMPNAME'])+" is: "+str(r.json()[0]['SAL'])
   else:
-    derivedsalary = "I don't see the employee "+crypto_name_test+" in my records."
+    returnmessage = "I don't see the employee "+crypto_name_test+" in my records."
+  if len(r.json()) != 0 and skillgrab == 'testproduct':
+    returnmessage = "The cost of "+crypto_name_test+" which is a "+str(r.json()[0]['PRDNAME'])+" is: "+str(r.json()[0]['PRDCOST'])
+  else:
+    returnmessage = "I don't see the product "+crypto_name_test+" in my records."
   return jsonify(
         status=200,
         replies=[{
           'type': 'text',
-          'content': derivedsalary
+          'content': returnmessage
         }]
       )
 
