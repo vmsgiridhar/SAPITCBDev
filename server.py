@@ -26,24 +26,25 @@ def index():
   if skillgrab == 'testsalary':
     r = requests.get("https://sitp2000481094trial.hanatrial.ondemand.com/sapit_test/read.xsjs?EMPID="+crypto_name_test)
     print(r.url)
+    if len(r.json()) != 0:
+      returnmessage = "The Salary of "+crypto_name_test+" who is "+str(r.json()[0]['EMPNAME'])+" is: "+str(r.json()[0]['SAL'])
+    else:
+      returnmessage = "I don't see the employee "+crypto_name_test+" in my records."
     rp = requests.get("https://giridev1c5232886trial.hanatrial.ondemand.com/ChatBot_DEV/ReadGeneric.xsjs",params = postdata)
     print(rp.url)
   if skillgrab == 'testproduct':
     r = requests.get("https://sitp2000481094trial.hanatrial.ondemand.com/sapit_test/read_products.xsjs?PRDID="+crypto_name_test)
     print(r.url)
+    if len(r.json()) != 0 and skillgrab == 'testproduct':
+      returnmessage = "The cost of "+crypto_name_test+" which is a "+str(r.json()[0]['PRDNAME'])+" is: "+str(r.json()[0]['PRDCOST'])
+    else:
+      returnmessage = "I don't see the product "+crypto_name_test+" in my records."
     rp = requests.get("https://giridev1c5232886trial.hanatrial.ondemand.com/ChatBot_DEV/ReadGeneric.xsjs",params = postdata)
     print(rp.url)
   #from TestData import datapartition_number
   #print(datapartition_number)
   #r = requests.get("https://api.myjson.com/bins/13jh5m")
-  if len(r.json()) != 0 and skillgrab == 'testsalary':
-    returnmessage = "The Salary of "+crypto_name_test+" who is "+str(r.json()[0]['EMPNAME'])+" is: "+str(r.json()[0]['SAL'])
-  else:
-    returnmessage = "I don't see the employee "+crypto_name_test+" in my records."
-  if len(r.json()) != 0 and skillgrab == 'testproduct':
-    returnmessage = "The cost of "+crypto_name_test+" which is a "+str(r.json()[0]['PRDNAME'])+" is: "+str(r.json()[0]['PRDCOST'])
-  else:
-    returnmessage = "I don't see the product "+crypto_name_test+" in my records."
+  
   return jsonify(
         status=200,
         replies=[{
