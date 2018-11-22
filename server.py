@@ -22,7 +22,7 @@ def index():
   challenge_var = data['challenge']
   
   return jsonify{
-         [{"challenge":challenge_var}]
+        "challenge":challenge_var
       )
 
 @app.route('/errors', methods=['POST'])
