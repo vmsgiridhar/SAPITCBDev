@@ -19,7 +19,7 @@ def index():
   
   #Code for testing the Slack API
   
-  test_message_channel = data['event']['text']
+  test_message_channel = data['event']['channel']
   print(test_message_channel)
 #   return jsonify(
 #         status=200,
