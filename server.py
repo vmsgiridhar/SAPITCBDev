@@ -18,13 +18,13 @@ def index():
   data = json.loads(request.get_data())
   
   #Code for testing the Slack API
-  challenge_var = data['challenge']
-  test_message_channel = data['event']['channel']
-  print(challenge_var)
+  #challenge_var = data['challenge']
+  test_message_channel = data['event']['text']
+  print(test_message_channel)
   return jsonify(
         status=200,
         replies=[{
-         'challenge': challenge_var
+         'text': test_message_channel
         }]
       )
   
