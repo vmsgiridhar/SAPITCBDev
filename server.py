@@ -18,15 +18,16 @@ def index():
   data = json.loads(request.get_data())
   
   #Code for testing the Slack API
+  challenge_var = data['challenge']
   
+  return jsonify(
+        status=200,
+        replies=[{
+         'challenge': challenge_var
+        }]
+      )
   test_message_channel = data['event']['channel']
   print(test_message_channel)
-#   return jsonify(
-#         status=200,
-#         replies=[{
-#          'challenge': challenge_var
-#         }]
-#       )
 
 @app.route('/errors', methods=['POST'])
 def errors():
