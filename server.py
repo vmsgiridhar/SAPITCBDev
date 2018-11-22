@@ -21,8 +21,7 @@ def index():
   
   challenge_var = data['challenge']
   
-  return jsonify(
-         status=200,
+  return jsonify{
          [{"challenge":challenge_var}]
       )
 
