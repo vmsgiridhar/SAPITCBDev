@@ -38,7 +38,7 @@ from flask_socketio import send, emit
 app = Flask(__name__)
 port = int(os.environ["PORT"])
 socketio = SocketIO(app)
-def some_function():
-    socketio.emit('some event', {'data': 42})
-some_function()
+@socketio.on('my event')
+def handle_my_custom_event(data):
+    emit('my response', data, broadcast=True)
 app.run(port=port, host="0.0.0.0") 
