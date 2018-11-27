@@ -24,8 +24,8 @@ def index():
 
 json = [{'Test':'Hi Test'}]
 @socketio.on('json')
-  def handle_json(json):
-    send(json, json=True)
+def handle_json(json):
+  send(json, json=True)
 
 @app.route('/errors', methods=['POST'])
 def errors():
