@@ -22,16 +22,17 @@ def index():
          'text': test_message_channel
         }]
       )
+@app.route('/errors', methods=['POST'])
+def errors():
+  print(json.loads(request.get_data()))
+  return jsonify(status=200)
+
 
 json = [{'Test':'Hi Test'}]
 @socketio.on('json')
 def handle_json(json):
   send(json, json=True)
 
-@app.route('/errors', methods=['POST'])
-def errors():
-  print(json.loads(request.get_data()))
-  return jsonify(status=200)
 
 #app.run(port=port)
 app.run(port=port, host="0.0.0.0") 
