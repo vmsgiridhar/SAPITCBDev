@@ -1,6 +1,7 @@
-from flask import Flask, request, jsonify  
+#Working code
+from flask import Flask, request, jsonify 
 from flask_socketio import send, emit    
-import json 
+import json
 import requests
 import os
 app = Flask(__name__)
