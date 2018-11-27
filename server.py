@@ -32,6 +32,7 @@
 
 
 #Trying the brute force
+import os
 from flask import Flask, request, jsonify 
 from flask_socketio import send, emit
 app = Flask(__name__)
