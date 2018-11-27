@@ -4,7 +4,7 @@ import json
 import requests
 import os
 app = Flask(__name__)
-socketio = SocketIO(app)
+#socketio = SocketIO(app)
 #port = '5000'
 port = int(os.environ["PORT"])
 
