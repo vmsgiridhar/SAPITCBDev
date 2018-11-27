@@ -1,11 +1,5 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Nov 22 18:47:24 2018
-
-@author: C5232886
-"""
-
 from flask import Flask, request, jsonify 
+from flask_socketio import send, emit    
 import json
 import requests
 import os
@@ -27,7 +21,11 @@ def index():
          'text': test_message_channel
         }]
       )
-  
+
+json = [{'Test':'Hi Test'}]
+@socketio.on('json')
+  def handle_json(json):
+    send(json, json=True)
 
 @app.route('/errors', methods=['POST'])
 def errors():
