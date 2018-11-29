@@ -34,7 +34,7 @@
 #Trying the brute force
 import os
 from flask import Flask, request, jsonify 
-from flask_socketio import send, emit
+from flask_socketio import send, emit, SocketIO
 app = Flask(__name__)
 port = int(os.environ["PORT"]) #40813 on Heroku
 socketio = SocketIO(app)
