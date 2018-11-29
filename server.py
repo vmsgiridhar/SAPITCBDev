@@ -9,9 +9,13 @@ socketio = SocketIO(app)
 port = int(os.environ["PORT"])
 
 #editing now
+# @socketio.on('json')
+# def handle_json(json):
+#     send(json, json=True)
+    
 @socketio.on('json')
 def handle_json(json):
-    send(json, json=True)
+    print('received json: ' + str(json))
 
 @app.route('/', methods=['POST'])
 def index():
