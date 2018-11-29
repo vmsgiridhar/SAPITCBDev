@@ -25,7 +25,6 @@ def index():
   @socketio.on('json')
   def handle_json(a):
     print('received json: ' + str(a))
-  handle_json(test_message_channel)
   
   print(test_message_channel)
   return jsonify(
