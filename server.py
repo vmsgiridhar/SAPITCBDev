@@ -35,11 +35,15 @@
 #Trying the brute force
 from flask import Flask, render_template
 from flask_socketio import SocketIO
-
+import requests
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app)
-
+@app.route('/',methods=['POST'])
+def getData():
+  data = json.loads(request.get_data())
+  data = data['event']['text']
+  print(data)
 @socketio.on('json')
 def handle_json(json):
     print('received json: ' + str(json))
