@@ -21,7 +21,7 @@ def index():
   #challenge_var = data['challenge']
   test_message_channel = data['event']['text']
   #editing now
-  test = [{'A':'a'}]
+  test = 'testing'
   handle_json(test)
   print(test)
   
