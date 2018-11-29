@@ -4,7 +4,7 @@ import json
 import requests
 import os
 app = Flask(__name__)
-socketio = SocketIO(app)
+#socketio = SocketIO(app)
 #port = '5000'
 port = int(os.environ["PORT"])
 
@@ -21,6 +21,7 @@ def index():
   #challenge_var = data['challenge']
   test_message_channel = data['event']['text']
   #editing now
+  socketio = SocketIO(app)
   @socketio.on('json')
   def handle_json(a):
     print('received json: ' + str(a))
