@@ -41,7 +41,10 @@ socketio = SocketIO(app)
 # @socketio.on('my event')
 # def handle_my_custom_event(data):
 #     emit('my response', data, broadcast=True)
-@socketio.on('message')
-def handle_message(message):
-    send("Test")    
+def ack():
+    print ('message was received!')
+
+@socketio.on('my event')
+def handle_my_custom_event(json):
+    emit('my response', json, callback=ack)   
 app.run(port=port, host="0.0.0.0") 
