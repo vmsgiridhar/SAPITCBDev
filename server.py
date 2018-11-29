@@ -26,7 +26,7 @@ def index():
   test_message_channel = data['event']['text']
   #editing now
   test = 'testing'
-  handle_json(test)
+  handle_json('json')
   print(test)
   
   print(test_message_channel)
