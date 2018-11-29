@@ -12,10 +12,6 @@ port = int(os.environ["PORT"])
 # @socketio.on('json')
 # def handle_json(json):
 #     send(json, json=True)
-    
-@socketio.on('json')
-def handle_json(json):
-    print('received json: ' + str(json))
 
 @app.route('/', methods=['POST'])
 def index():
@@ -25,9 +21,9 @@ def index():
   #challenge_var = data['challenge']
   test_message_channel = data['event']['text']
   #editing now
-  test = 'testing'
-  handle_json('json')
-  print(test)
+  @socketio.on('json')
+  def handle_json(json):
+    print('received json: ' + str(json))
   
   print(test_message_channel)
   return jsonify(
