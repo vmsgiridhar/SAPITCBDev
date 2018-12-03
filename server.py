@@ -22,9 +22,9 @@ def index():
   test_message_channel = data['event']['text']
   #editing now
   socketio = SocketIO(app)
-  @socketio.on('json')
-  def some_function():
-    socketio.emit('some event', {'data': 42})
+#   @socketio.on('json')
+#   def some_function():
+#     socketio.emit('some event', {'data': 42})
   
   print(test_message_channel)
   return jsonify(
