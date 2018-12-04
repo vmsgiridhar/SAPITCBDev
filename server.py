@@ -27,17 +27,34 @@
 # #app.run(port=port)
 # app.run(port=port, host="0.0.0.0") 
 
-# Basic Flask Python Web App
+# Working code
 from flask import Flask
 from flask_socketio import SocketIO, send
 import os #added
-
+import json
+import requests
 app = Flask(__name__)
 app.config.update(
     DEBUG=True,
     SECRET_KEY='5a1b8a0f3c'
  )
-#app.config['SERVER_NAME'] = '0.0.0.0:' + str(port)
+
+#Temp variable to catch return from Slack
+Slack_ret = ''
+
+# To listen code from Slack
+@app.route('/', methods=['POST'])
+def index():
+  data = json.loads(request.get_data())
+  test_message_channel = data['event']['text']
+  Slack_ret = test_message_channel
+  print(test_message_channel)
+  return jsonify(
+        status=200,
+        replies=[{
+         'text': test_message_channel
+        }]
+      )
 
 socketio = SocketIO(app)
 
