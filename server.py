@@ -35,8 +35,7 @@ import os #added
 app = Flask(__name__)
 app.config.update(
     DEBUG=True,
-    SECRET_KEY='5a1b8a0f3c',
-    APPLICATION_ROOT = 'sapitcbdev.herokuapp.com'
+    SECRET_KEY='5a1b8a0f3c'
  )
 #app.config['SERVER_NAME'] = '0.0.0.0:' + str(port)
 
@@ -48,5 +47,5 @@ def messageHandler(msg):
    send(msg, broadcast=True)
 
 if __name__ == "__main__":
-    port = int(os.environ["PORT"]) #added
-    socketio.run(app, host='0.0.0.0', port) 
+    port_1 = int(os.environ["PORT"]) #added
+    socketio.run(app, host='0.0.0.0', port=port_1) 
