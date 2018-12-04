@@ -48,6 +48,9 @@ def index():
   data = json.loads(request.get_data())
   test_message_channel = data['event']['text']
   Slack_ret = test_message_channel #added just now
+  def some_function():
+    socketio.emit('some event', {'data': 42})
+  some_function()
   print(test_message_channel)
   return jsonify(
         status=200,
@@ -57,11 +60,10 @@ def index():
       )
 
 socketio = SocketIO(app)
-if Slack_ret != '':
-    @socketio.on('message')
-    def messageHandler(msg):
-        print('Message: '+ msg)
-        send(msg, broadcast=True)
+@socketio.on('message')
+def messageHandler(msg):
+    print('Message: '+ msg)
+    send(msg, broadcast=True)
 
 if __name__ == "__main__":
     port_1 = int(os.environ["PORT"]) #added
