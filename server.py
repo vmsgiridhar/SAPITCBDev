@@ -5,7 +5,7 @@ import requests
 import os
 app = Flask(__name__)
 #port = '5000'
-port = int(os.environ["PORT"])
+port = int(os.environ["PORT"]) 
 
 @app.route('/', methods=['POST'])
 def index():
