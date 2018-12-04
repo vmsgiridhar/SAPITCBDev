@@ -42,18 +42,12 @@ app.config.update(
 #Temp variable to catch return from Slack
 Slack_ret = ''
 
-socketio = SocketIO(app)
-@socketio.on('message')
-def messageHandler(msg):
-   print('Message: '+ msg)
-   send(msg, broadcast=True)
-
 # To listen code from Slack
 @app.route('/', methods=['POST'])
 def index():
   data = json.loads(request.get_data())
   test_message_channel = data['event']['text']
-  Slack_ret = test_message_channel
+  Slack_ret = test_message_channel #added just now
   messageHandler(Slack_ret) #added just now
   print(test_message_channel)
   return jsonify(
@@ -63,7 +57,11 @@ def index():
         }]
       )
 
-
+socketio = SocketIO(app)
+@socketio.on('message')
+def messageHandler(msg):
+   print('Message: '+ msg)
+   send(msg, broadcast=True)
 
 if __name__ == "__main__":
     port_1 = int(os.environ["PORT"]) #added
