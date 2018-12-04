@@ -49,7 +49,7 @@ def index():
   test_message_channel = data['event']['text']
   Slack_ret = test_message_channel #added just now
   def some_function():
-    socketio.emit('some event', {'data': 42})
+    socketio.emit('some event', 'Some event at Slack')
   some_function()
   print(test_message_channel)
   return jsonify(
