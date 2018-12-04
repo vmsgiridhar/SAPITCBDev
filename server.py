@@ -39,17 +39,13 @@ app.config.update(
     SECRET_KEY='5a1b8a0f3c'
  )
 
-#Temp variable to catch return from Slack
-Slack_ret = ''
-
 # To listen code from Slack
 @app.route('/', methods=['POST'])
 def index():
   data = json.loads(request.get_data())
   test_message_channel = data['event']['text']
-  Slack_ret = test_message_channel #added just now
   def some_function():
-    socketio.emit('some event', 'Some event at Slack')
+    socketio.emit('some event', test_message_channel)
   some_function()
   print(test_message_channel)
   return jsonify(
