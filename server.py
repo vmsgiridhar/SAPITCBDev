@@ -61,10 +61,10 @@ def index():
       )
 
 socketio = SocketIO(app)
-# @socketio.on('message')
-# def messageHandler(msg):
-#    print('Message: '+ msg)
-#    send(msg, broadcast=True)
+@socketio.on('message')
+def messageHandler(msg):
+   print('Message: '+ msg)
+   send(msg, broadcast=True)
 
 if __name__ == "__main__":
     port_1 = int(os.environ["PORT"]) #added
