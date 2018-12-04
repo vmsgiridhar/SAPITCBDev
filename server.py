@@ -48,10 +48,7 @@ def index():
   data = json.loads(request.get_data())
   test_message_channel = data['event']['text']
   Slack_ret = test_message_channel #added just now
-  @socketio.on('message')
-  def messageHandler(Slack_ret):
-    print('Message: '+ Slack_ret)
-    send(Slack_ret, broadcast=True)
+  send(Slack_ret, broadcast=True)
   print(test_message_channel)
   return jsonify(
         status=200,
