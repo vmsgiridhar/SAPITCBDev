@@ -28,7 +28,7 @@
 # app.run(port=port, host="0.0.0.0") 
 
 # Working code
-from flask import Flask
+from flask import Flask, request, jsonify
 from flask_socketio import SocketIO, send
 import os #added
 import json
