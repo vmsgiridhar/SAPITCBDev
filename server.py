@@ -35,10 +35,10 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = '5a1b8a0f3c'
 socketio = SocketIO(app)
 
-#@socketio.on('message')
-#def messageHandler(msg):
-#    print('Message: '+ msg)
-#    send(msg, broadcast=True)
+@socketio.on('message')
+def messageHandler(msg):
+   print('Message: '+ msg)
+   send(msg, broadcast=True)
 
 if __name__ == "__main__":
     socketio.run(app)
