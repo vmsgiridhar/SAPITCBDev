@@ -34,7 +34,7 @@ import os #added
 port = int(os.environ["PORT"]) #added
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '5a1b8a0f3c'
-app.config['SERVER_NAME'] = 'http://0.0.0.0:' + port
+app.config['SERVER_NAME'] = 'http://0.0.0.0:' + str(port)
 socketio = SocketIO(app)
 
 @socketio.on('message')
