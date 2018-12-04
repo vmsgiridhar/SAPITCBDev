@@ -35,7 +35,7 @@ port = int(os.environ["PORT"]) #added
 app = Flask(__name__)
 app.config.update(
     DEBUG=True,
-    SECRET_KEY='5a1b8a0f3c'
+    SECRET_KEY='5a1b8a0f3c',
     APPLICATION_ROOT = 'sapitcbdev.herokuapp.com'
  )
 #app.config['SERVER_NAME'] = '0.0.0.0:' + str(port)
